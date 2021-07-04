@@ -85,5 +85,3 @@ class UserProfile(models.Model):
         db_table = "user_profile"
         verbose_name = _("پروفایل کاربر")
         verbose_name_plural = _("پروفایل کاربران")
-
-
