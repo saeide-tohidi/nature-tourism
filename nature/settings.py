@@ -39,9 +39,11 @@ INSTALLED_APPS = [
     # library
     'rest_framework',
     'rest_framework.authtoken',
+    'drf_yasg',
 
     # my app
     'users.apps.UsersConfig',
+    'location.apps.LocationConfig',
 ]
 
 MIDDLEWARE = [
