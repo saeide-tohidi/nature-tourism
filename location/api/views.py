@@ -1,8 +1,11 @@
 from rest_framework.authentication import TokenAuthentication
 from rest_framework.response import Response
 from rest_framework import generics, permissions
+
+from location.api.filter import LocationFilter
 from location.api.serializers import LocationListSerializer, LocationDetailSerializer
 from rest_framework.pagination import LimitOffsetPagination, PageNumberPagination
+from django_filters import rest_framework as filters
 
 from location.models import Location
 
@@ -20,8 +23,8 @@ class LocationListAPIViewSet(generics.ListAPIView):
     # permission_classes = [permissions.IsAuthenticated]
     # authentication_classes = [TokenAuthentication]
     pagination_class = LocationPagination
-    # filter_backends = (filters.DjangoFilterBackend,)
-    # filterset_class = ProductFilter
+    filter_backends = (filters.DjangoFilterBackend,)
+    filterset_class = LocationFilter
 
 
 class LocationDetailAPIView(generics.RetrieveAPIView):

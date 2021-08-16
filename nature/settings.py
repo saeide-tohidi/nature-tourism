@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     # library
     'rest_framework',
     'rest_framework.authtoken',
-    'drf_yasg',
+    'django_filters',
 
     # my app
     'users.apps.UsersConfig',
