@@ -19,7 +19,7 @@ class LocationPagination(LimitOffsetPagination):
 
 class LocationListAPIViewSet(generics.ListAPIView):
     serializer_class = LocationListSerializer
-    queryset = Location.objects.all()
+    queryset = Location.objects.filter(approved=True)
     # permission_classes = [permissions.IsAuthenticated]
     # authentication_classes = [TokenAuthentication]
     pagination_class = LocationPagination
