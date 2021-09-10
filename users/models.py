@@ -6,6 +6,10 @@ from users.managers import CustomUserManager
 from users.validators import PhoneNoValidator
 from django.utils.translation import gettext_lazy as _
 from unidecode import unidecode
+from django.conf import settings
+from django.db.models.signals import post_save
+from django.dispatch import receiver
+from rest_framework.authtoken.models import Token
 
 
 class CustomUser(AbstractBaseUser, PermissionsMixin):
@@ -51,3 +55,33 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     class Meta:
         verbose_name = _("کاربر")
         verbose_name_plural = _("کاربران")
+
+
+class UserProfile(models.Model):
+    """
+       Stores a user entry, related to :model:`users.CustomUser`.
+    """
+    user = models.OneToOneField(settings.AUTH_USER_MODEL, primary_key=True, verbose_name=_(
+        'کاربر'), on_delete=models.CASCADE, related_name="profile")
+    first_name = models.CharField(_('نام'), max_length=40, default='طبیعت‌گرد')
+    last_name = models.CharField(_('نام خانوادگی'), max_length=40, default='0')
+    picture = models.ImageField(_('تصویر'), blank=True, null=True)
+    GENDERS = [
+        ('M', _('مرد')),
+        ('F', _('زن')),
+    ]
+    gender = models.CharField(_('جنسیت'), max_length=1, choices=GENDERS, default='F')
+    email = models.CharField(_('ایمیل'), max_length=100, blank=True, null=True)
+    creation_date = models.DateTimeField(_('تاریخ ایجاد'), auto_now_add=True, null=True)
+
+    def __str__(self):
+        return self.full_name
+
+    @property
+    def full_name(self):
+        return f"{self.first_name}  {self.last_name}"
+
+    class Meta:
+        db_table = "user_profile"
+        verbose_name = _("پروفایل کاربر")
+        verbose_name_plural = _("پروفایل کاربران")
