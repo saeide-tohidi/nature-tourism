@@ -79,25 +79,25 @@ WSGI_APPLICATION = 'nature.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
 # DATABASES = {
 #     'default': {
-#         'ENGINE': 'django.db.backends.mysql',
-#         'NAME': 'djangoec_nature-tourism',
-#         'USER': 'djangoec_tohidi',
-#         'PASSWORD' : 'tohidi1369',
-#         'HOST': 'localhost',
-#         'PORT': '3306',
-#         'OPTIONS': {
-#             'sql_mode': 'STRICT_ALL_TABLES'
-#         }
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
 #     }
 # }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'djangoec_nature-tourism',
+        'USER': 'djangoec_tohidi',
+        'PASSWORD' : 'tohidi1369',
+        'HOST': 'localhost',
+        'PORT': '3306',
+        'OPTIONS': {
+            'sql_mode': 'STRICT_ALL_TABLES'
+        }
+    }
+}
 AUTH_USER_MODEL = 'users.CustomUser'
 
 # Password validation
