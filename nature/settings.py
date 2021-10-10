@@ -24,8 +24,7 @@ SECRET_KEY = 'django-insecure-bn*_s4(+i6ds(g@y=*6j4bs6$w8q77o8qs00c09yruhz3q1j%m
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = ['naturetourisme.django-ecommerce.ir' , 'www.naturetourisme.django-ecommerce.ir']
 # Application definition
 
 INSTALLED_APPS = [
@@ -80,13 +79,25 @@ WSGI_APPLICATION = 'nature.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'djangoec_nature-tourism',
+        'USER': 'djangoec_tohidi',
+        'PASSWORD' : 'tohidi1369',
+        'HOST': 'localhost',
+        'PORT': '3306',
+        'OPTIONS': {
+            'sql_mode': 'STRICT_ALL_TABLES'
+        }
     }
 }
-
 AUTH_USER_MODEL = 'users.CustomUser'
 
 # Password validation
