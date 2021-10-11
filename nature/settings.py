@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-bn*_s4(+i6ds(g@y=*6j4bs6$w8q77o8qs00c09yruhz3q1j%m
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['naturetourisme.django-ecommerce.ir' , 'www.naturetourisme.django-ecommerce.ir']
+ALLOWED_HOSTS = ['finalnature.django-ecommerce.ir' , 'www.finalnature.django-ecommerce.ir']
 # ALLOWED_HOSTS = []
 
 # Application definition
