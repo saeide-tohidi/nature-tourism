@@ -23,7 +23,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'django-insecure-bn*_s4(+i6ds(g@y=*6j4bs6$w8q77o8qs00c09yruhz3q1j%m'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['finalnature.django-ecommerce.ir' , 'www.finalnature.django-ecommerce.ir']
 # ALLOWED_HOSTS = []
@@ -43,6 +44,7 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'drf_yasg',
     'django_filters',
+    'ckeditor',
 
     # my app
     'users.apps.UsersConfig',
@@ -85,7 +87,7 @@ WSGI_APPLICATION = 'nature.wsgi.application'
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
 #     }
 # }
 DATABASES = {
